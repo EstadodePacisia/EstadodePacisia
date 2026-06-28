@@ -3,69 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página no encontrada | Estado de Pacisia</title>
+    <title>Error 404 - Estado de Pacisia</title>
     <link rel="icon" type="image/png" href="Escudo del Estado de Pacisia.png">
+    <!-- Tipografías Modernas y Geométricas -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
         :root {
-            --bg: #ffffff;
-            --text-main: #1a1a1a;
-            --text-sub: #444444;
-            --border: #eaeaea;
-            --accent: #000000;
+            --blue-dark: #003da5;    
+            --blue-light: #7a9ad1;   
+            --white-pure: #ffffff;   
+            --bg-soft: #f8fafc;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --border: #e2e8f0;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body { 
-            background-color: var(--bg); 
+            background-color: var(--bg-soft); 
             color: var(--text-main); 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            height: 100vh;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            height: 80px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
+            padding: 0 8%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .nav-brand { display: flex; align-items: center; gap: 15px; text-decoration: none; color: var(--text-main); }
+        .nav-symbols { display: flex; align-items: center; gap: 10px; }
+        .nav-symbols img { height: 42px; width: auto; }
+        .nav-brand div { border-left: 2px solid var(--border); padding-left: 15px; }
+        .nav-brand h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); }
+
+        /* --- CONTENEDOR 404 CON PAISAJE --- */
+        .error-container {
+            position: relative;
+            margin-top: 80px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 8%;
+            background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), 
+                        url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
             text-align: center;
-            padding: 20px;
         }
 
-        .container { max-width: 600px; }
+        .error-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-        h1 { font-size: 5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 10px; }
-        
-        h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .error-code {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--blue-dark);
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -0.04em;
+        }
 
-        p { color: var(--text-sub); margin-bottom: 40px; }
+        .error-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
 
-        a { 
-            display: inline-block;
-            padding: 12px 30px;
-            background: var(--accent);
-            color: white;
+        .error-message {
+            font-size: 1.05rem;
+            color: var(--text-sub);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .return-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue-dark);
+            color: var(--white-pure);
             text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
             font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: opacity 0.2s;
+            box-shadow: 0 8px 20px rgba(0,39,165,0.25);
+            transition: var(--transition);
         }
 
-        a:hover { opacity: 0.8; }
-        
-        footer { position: absolute; bottom: 40px; font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.1em; }
+        .return-btn:hover {
+            background: #00287a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,39,165,0.35);
+        }
+
+        footer { 
+            background: #0b1329; 
+            color: var(--white-pure); 
+            padding: 30px 10%; 
+            text-align: center; 
+        }
+        footer p { 
+            font-size: 0.85rem; 
+            color: #64748b; 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+        }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .error-content { padding: 40px 25px; }
+            .error-code { font-size: 4.5rem; }
+            .error-title { font-size: 1.4rem; }
+            header { padding: 0 5%; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>404</h1>
-        <h2>Página no encontrada</h2>
-        <p>Lo sentimos, el recurso que intenta consultar no existe dentro de la red oficial del Estado de Pacisia.</p>
-        <a href="index.html">Volver al portal principal</a>
+    <header id="mainHeader">
+        <div class="nav-brand">
+            <div class="nav-symbols">
+                <img src="Escudo del Estado de Pacisia.png" alt="Escudo Oficial">
+                <img src="Bandera del Estado de Pacisia.png" alt="Bandera Oficial">
+            </div>
+            <div><h1>Estado de Pacisia</h1></div>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR CENTRAL DE ERROR -->
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <h2 class="error-title">Dirección no encontrada</h2>
+            <p class="error-message">
+                El recurso institucional al que intenta acceder no se encuentra disponible, ha sido trasladado o no existe dentro del servidor oficial del Estado.
+            </p>
+            <a href="index.html" class="return-btn">
+                <i class="fas fa-arrow-left"></i> Retornar al Portal Oficial
+            </a>
+        </div>
     </div>
 
     <footer>
-        Gobierno del Estado de Pacisia &copy; 2026
+        <p>Estado de Pacisia &copy; 2026 • Canal de Comunicación Institucional</p>
     </footer>
 
 </body>
